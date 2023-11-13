@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useReducer } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import '../../ActivityLevels.less';
 import { compileArduinoCode } from '../../Utils/helpers';
 import { message, Spin, Row, Col, Alert, Menu, Dropdown } from 'antd';
@@ -154,6 +154,20 @@ export default function PublicCanvas({ activity, isSandbox }) {
     </Menu>
   );
 
+  const supportedLanguages = (
+    <Menu>
+      <Menu.Item>
+        <p>Blockly</p>
+      </Menu.Item>
+      <Menu.Item>
+        <p>Scratch</p>
+      </Menu.Item>
+      <Menu.Item>
+        <p>Cognimates ML</p>
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <div id='horizontal-container' className='flex flex-column'>
       <div className='flex flex-row'>
@@ -183,10 +197,19 @@ export default function PublicCanvas({ activity, isSandbox }) {
                     </Row>
                   </Col>
                   <Col flex='auto' />
-
+                  <Col flex={'auto'}>
+                    <Row>
+                      <Dropdown overlay={supportedLanguages}>
+                        <i className='fa fa-info-circle'>
+                            
+                        </i>
+                      </Dropdown>
+                    </Row>
+                  </Col>
                   <Col flex={'200px'}>
                     <Row>
                       <Col className='flex flex-row'>
+                        
                         <button
                           onClick={handleUndo}
                           id='link'
@@ -232,6 +255,13 @@ export default function PublicCanvas({ activity, isSandbox }) {
                           )}
                         </button>
                       </Col>
+                    </Row>
+                  </Col>
+                  <Col flex={'auto'}>
+                    <Row>
+                      <i className='fa fa-info-circle'>
+                          
+                      </i>
                     </Row>
                   </Col>
                   <Col flex={'230px'}>
