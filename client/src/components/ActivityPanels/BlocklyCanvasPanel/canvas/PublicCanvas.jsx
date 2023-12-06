@@ -14,6 +14,8 @@ import {
 import ArduinoLogo from '../Icons/ArduinoLogo';
 import PlotterLogo from '../Icons/PlotterLogo';
 
+import Snap from '../Snap';
+
 let plotId = 1;
 
 export default function PublicCanvas({ activity, isSandbox }) {
@@ -160,10 +162,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
         <p>Blockly</p>
       </Menu.Item>
       <Menu.Item>
-        <p>Scratch</p>
-      </Menu.Item>
-      <Menu.Item>
-        <p>Cognimates ML</p>
+        <p>Snap!</p>
       </Menu.Item>
     </Menu>
   );
@@ -259,8 +258,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
                   </Col>
                   <Col flex={'auto'}>
                     <Row>
-                      <i className='fa fa-info-circle'>
-                          
+                      <i className='fa fa-info-circle'>   
                       </i>
                     </Row>
                   </Col>
@@ -299,7 +297,8 @@ export default function PublicCanvas({ activity, isSandbox }) {
                 </Row>
               </Col>
             </Row>
-            <div id='blockly-canvas' />
+            {/* <div id='blockly-canvas' /> */}
+              <Snap />
           </Spin>
         </div>
         <ConsoleModal
@@ -317,7 +316,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
         />
       </div>
 
-      {/* This xml is for the blocks' menu we will provide. Here are examples on how to include categories and subcategories */}
+      {/* This xml is for the blocks' menu we will provide. Here are examples on how to include categories and subcategories
       <xml id='toolbox' is='Blockly workspace'>
         {
           // Maps out block categories
@@ -341,7 +340,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
               </category>
             ))
         }
-      </xml>
+      </xml> */}
 
       {compileError && (
         <Alert
