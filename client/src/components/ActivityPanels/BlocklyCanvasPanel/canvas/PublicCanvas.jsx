@@ -10,11 +10,9 @@ import {
   connectToPort,
   handleCloseConnection,
   handleOpenConnection,
-} from "../../Utils/consoleHelpers";
-import ArduinoLogo from "../Icons/ArduinoLogo";
-import PlotterLogo from "../Icons/PlotterLogo";
-//import { LanguageItems } from "../../Utils/mockData";
-import { LanguageItems } from "../../../../Utils/mockData";
+} from '../../Utils/consoleHelpers';
+import ArduinoLogo from '../Icons/ArduinoLogo';
+import PlotterLogo from '../Icons/PlotterLogo';
 
 let plotId = 1;
 
@@ -166,12 +164,16 @@ export default function PublicCanvas({ activity, isSandbox }) {
   };
 
   const supportedLanguages = (
-    <Menu onClick={handleMenuClick}>
-      {LanguageItems.map((item) => (
-        <Menu.Item key={item?.route}>
-          <p>{item?.title}</p>
-        </Menu.Item>
-      ))}
+    <Menu>
+      <Menu.Item>
+        <p>Blockly</p>
+      </Menu.Item>
+      <Menu.Item>
+        <p>Scratch</p>
+      </Menu.Item>
+      <Menu.Item>
+        <p>Cognimates ML</p>
+      </Menu.Item>
     </Menu>
   );
 
@@ -268,14 +270,11 @@ export default function PublicCanvas({ activity, isSandbox }) {
                       </Col>
                     </Row>
                   </Col>
-                  <Col flex={"auto"}>
-                    <Row onClick={() => navigate(currentLanguage)}>
-                      <i
-                        className="fa fa-info-circle"
-                        style={{ color: "#3C5C82", cursor: "pointer" }}
-                        onMouseOver={(e) => (e.target.style.color = "#5BABDE")}
-                        onMouseOut={(e) => (e.target.style.color = "#3C5C82")}
-                      ></i>
+                  <Col flex={'auto'}>
+                    <Row>
+                      <i className='fa fa-info-circle'>
+                          
+                      </i>
                     </Row>
                   </Col>
                   <Col flex={"230px"}>
@@ -313,7 +312,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
                 </Row>
               </Col>
             </Row>
-            <div id="blockly-canvas" />
+            <div id='blockly-canvas' />
           </Spin>
         </div>
         <ConsoleModal
@@ -332,7 +331,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
       </div>
 
       {/* This xml is for the blocks' menu we will provide. Here are examples on how to include categories and subcategories */}
-      <xml id="toolbox" is="Blockly workspace">
+      <xml id='toolbox' is='Blockly workspace'>
         {
           // Maps out block categories
           activity &&
@@ -355,7 +354,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
               </category>
             ))
         }
-      </xml>
+      </xml> */}
 
       {compileError && (
         <Alert
