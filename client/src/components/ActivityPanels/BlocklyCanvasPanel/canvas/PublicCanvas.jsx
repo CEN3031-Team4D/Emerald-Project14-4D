@@ -318,7 +318,7 @@ export default function PublicCanvas({ activity, isSandbox }) {
               </Col>
             </Row>
             {currentLanguage === "/language/blockly" ? (
-            <div id='blockly-canvas'>Blockly Canvas Here</div>
+            <div id='blockly-canvas'> </div>
         ) : currentLanguage === "/language/snap" ? (
           <Snap />
         ) : null}
