@@ -10,12 +10,15 @@ import {
   connectToPort,
   handleCloseConnection,
   handleOpenConnection,
-} from '../../Utils/consoleHelpers';
-import ArduinoLogo from '../Icons/ArduinoLogo';
-import PlotterLogo from '../Icons/PlotterLogo';
+} from "../../Utils/consoleHelpers";
+import ArduinoLogo from "../Icons/ArduinoLogo";
+import PlotterLogo from "../Icons/PlotterLogo";
+import { LanguageItems } from "../../../../Utils/mockData";
+
+import Snap from '../Snap';
 
 let plotId = 1;
-
+let content;
 export default function PublicCanvas({ activity, isSandbox }) {
   const [hoverUndo, setHoverUndo] = useState(false);
   const [hoverRedo, setHoverRedo] = useState(false);
@@ -161,21 +164,20 @@ export default function PublicCanvas({ activity, isSandbox }) {
   const navigate = useNavigate();
   const handleMenuClick = (e) => {
     setCurrentLanguage(e.key);
-  };
+    };
 
   const supportedLanguages = (
-    <Menu>
-      <Menu.Item>
-        <p>Blockly</p>
-      </Menu.Item>
-      <Menu.Item>
-        <p>Scratch</p>
-      </Menu.Item>
-      <Menu.Item>
-        <p>Cognimates ML</p>
-      </Menu.Item>
+    <Menu onClick={handleMenuClick}>
+      {LanguageItems.map((item) => (
+        <Menu.Item key={item?.route}>
+          <p>{item?.title}</p>
+        </Menu.Item>
+      ))}
     </Menu>
   );
+  // useEffect(() => {
+  //   console.log(currentLanguage);
+  // }, [currentLanguage]);
 
   return (
     <div id="horizontal-container" className="flex flex-column">
@@ -270,11 +272,14 @@ export default function PublicCanvas({ activity, isSandbox }) {
                       </Col>
                     </Row>
                   </Col>
-                  <Col flex={'auto'}>
-                    <Row>
-                      <i className='fa fa-info-circle'>
-                          
-                      </i>
+                  <Col flex={"auto"}>
+                    <Row onClick={() => navigate(currentLanguage)}>
+                      <i
+                        className="fa fa-info-circle"
+                        style={{ color: "#3C5C82", cursor: "pointer" }}
+                        onMouseOver={(e) => (e.target.style.color = "#5BABDE")}
+                        onMouseOut={(e) => (e.target.style.color = "#3C5C82")}
+                      ></i>
                     </Row>
                   </Col>
                   <Col flex={"230px"}>
@@ -312,7 +317,11 @@ export default function PublicCanvas({ activity, isSandbox }) {
                 </Row>
               </Col>
             </Row>
-            <div id='blockly-canvas' />
+            {currentLanguage === "/language/blockly" ? (
+            <div id='blockly-canvas'>Blockly Canvas Here</div>
+        ) : currentLanguage === "/language/snap" ? (
+          <Snap />
+        ) : null}
           </Spin>
         </div>
         <ConsoleModal
@@ -329,7 +338,8 @@ export default function PublicCanvas({ activity, isSandbox }) {
           plotId={plotId}
         />
       </div>
-
+      {currentLanguage === "/language/blockly" ? (     
+      <div>   
       {/* This xml is for the blocks' menu we will provide. Here are examples on how to include categories and subcategories */}
       <xml id='toolbox' is='Blockly workspace'>
         {
@@ -354,7 +364,14 @@ export default function PublicCanvas({ activity, isSandbox }) {
               </category>
             ))
         }
-      </xml> */}
+      </xml>
+      </div>
+      ) 
+      :null}
+        
+
+
+
 
       {compileError && (
         <Alert
