@@ -54,7 +54,7 @@ const readUntilClose = async (
 ) => {
   const textDecoder = new window.TextDecoderStream();
   readableStreamClosed = port.readable.pipeTo(textDecoder.writable);
-  reader = textDecoder.readable.getReader();
+ // reader = textDecoder.readable.getReader();
   reader = textDecoder.readable
     .pipeThrough(new window.TransformStream(new LineBreakTransformer()))
     .getReader();
