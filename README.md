@@ -1,3 +1,17 @@
+<img width="126" alt="image" src="https://github.com/CEN3031-Team4D/Emerald-Project14-4D/assets/101589789/b1313edc-3103-49b4-9fc8-f39b548caa0d">Features Implemented
+-functional drop-down menu with the ability to switch between two block-based coding languages and info pages for each one that fit the requirements of the user to be kid-friendly and not language intense, so younger coders can understand
+-to run the project locally you would copy it and then within the Emerald-Project-4D directory you run docker-compose-up and then in another terminal you should cd into the client directory and run npm start
+- to get to the info pages one should click the i on the top right corner when selecting the correct drop down.
+
+<img width="126" alt="image" src="https://github.com/CEN3031-Team4D/Emerald-Project14-4D/assets/101589789/84b71ff7-7e09-4578-812c-e0ce307646d1">
+<img width="735" alt="image" src="https://github.com/CEN3031-Team4D/Emerald-Project14-4D/assets/101589789/c40b3115-7f32-49c0-97a8-aa2582a7947b">
+<img width="728" alt="image" src="https://github.com/CEN3031-Team4D/Emerald-Project14-4D/assets/101589789/f9c66710-a83a-43a4-a684-083c266de0c2">
+<img width="912" alt="image" src="https://github.com/CEN3031-Team4D/Emerald-Project14-4D/assets/101589789/79cee6dd-6683-4f43-8725-60b6230490ff">
+
+
+
+
+
 # CaSMM
 
 > Computation and Science Modeling through Making
@@ -31,7 +45,7 @@ Cloud-based programming interface
 ### Development
 #### Structure
 
-The development environment is composed of five servers. The first one is run with the [Create React App](https://create-react-app.dev/docs/getting-started/) dev server. The later four are containerized with docker and run with [docker compose](https://docs.docker.com/compose/).
+The development environment is composed of five servers. The first one is run with the [Create React App](https://create-react-app.dev/docs/getting-started/) dev server. The latter four are containerized with docker and run with [docker compose](https://docs.docker.com/compose/).
 
 * `casmm-client-dev` - localhost:3000
 
@@ -67,7 +81,7 @@ The development environment is composed of five servers. The first one is run wi
 
 The staging environment is a Heroku app. It is composed of a web dyno, compile dyno, Heroku Postgres add-on, and Heroku Redis add-on.
 
-* `casmm-staging` - [casmm-staging.herokuapp.com](https://casmm-staging.herokuapp.com/)
+* `came-staging` - [casmm-staging.Heroku app.com](https://casmm-staging.herokuapp.com/)
   * The web dyno runs `server`
   * The compile dyno runs `compile`
 
